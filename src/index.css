@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+body {
+    font-size: 16px;
+    font-family: "Raleway", sans-serif;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100vh;
+    background-color: #173d4d;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #3A99C2;
+    color: #fff;
+}
+
+.waves{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+@keyframes moveWave1 {
+    from {
+      transform: translateX(1000px);
+    }
+  }
+
+.wave-1{
+    animation: moveWave1 3s ease-in-out infinite alternate;
+}
+
+@keyframes moveWave2 {
+    from {
+      transform: translateX(800px);
+    }
+  }
+
+.wave-2{
+    animation: moveWave2 3s 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes moveWave3 {
+    from {
+      transform: translateX(600px);
+    }
+  }
+
+.wave-3{
+    animation: moveWave3 3s 0.7s ease-in-out infinite alternate;
+}
+
+@media (max-width: 767px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+  }
+
+/* PARALAX STARS */
+.night{
+    position: absolute;/* position: relative; */
+    width: 100%;
+    height: 100%;
+    transform: rotateZ(40deg);
+  }
+
+.star{
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    height: 4px;
+    background: linear-gradient(-45deg, #5F91FF, rgba(0, 0, 255, 0));
+    border-radius: 999px;
+    filter: drop-shadow(0 0 6px #699BFF);
+    animation: tail 3s ease-in-out infinite,
+               falling 3s ease-in-out infinite;
+  }
+  
+  @keyframes tail{
+    0%{
+      width: 0;
+    }
+    30%{
+      width: 100px;
+    }
+    100%{
+      width: 0;
+    }
+  }
+  
+  @keyframes falling{
+    0%{
+      transform: translateX(0);
+    }
+    100%{
+      transform: translateX(340px);
+    }
+  }
+  .star::before, .star::after{
+    content: '';
+    position: absolute;
+    top: calc(50% - 2px);
+    right: 0;
+    height: 4px;
+    background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #5F91FF, rgba(0, 0, 255, 0));
+    border-radius: 100%;
+    transform: translateX(50%) rotateZ(45deg);
+    animation: shining 3s ease-in-out infinite;
+  }
+  
+  @keyframes shining{
+    0%{
+      width: 0;
+    }
+    50%{
+      width: 30px;
+    }
+    100%{
+      width: 0;
+    }
+  }
+  
+  .star::after{
+    transform: translateX(50%) rotateZ(-45deg);
+  }
+  
+  .star:nth-child(1){
+    top: calc(50% - 100px);
+    left: calc(50% - 250px);
+    animation-delay: 1s;
+  }
